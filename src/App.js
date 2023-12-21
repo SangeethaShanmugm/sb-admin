@@ -5,29 +5,34 @@ import Sidebar from './components/Sidebar';
 import Dashboard from "./components/Dashboard"
 import TopBar from './components/TopBar';
 import User from './components/User';
+import UserCreate from './components/UserCreate';
+import { UserProvider } from './components/UserContext';
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <div id="wrapper">
-          <Sidebar />
-          <div id="content-wrapper" className="d-flex flex-column">
-            <div id="content">
-              <TopBar />
-              <div class="container-fluid">
-                <Switch>
-                  <Route exact={true} path="/" component={Dashboard} />
-                  <Route exact={true} path="/user" component={User} />
-                </Switch>
+    <UserProvider>
+      <BrowserRouter>
+        <div className="App">
+          <div id="wrapper">
+            <Sidebar />
+            <div id="content-wrapper" className="d-flex flex-column">
+              <div id="content">
+                <TopBar />
+                <div class="container-fluid">
+                  <Switch>
+                    <Route path="/" exact={true} component={Dashboard} />
+                    <Route path="/user" exact={true} component={User} />
+                    <Route path="/user-create" exact={true} component={UserCreate} />
+                  </Switch>
+                </div>
+
               </div>
-
             </div>
+
+
           </div>
-
-
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 

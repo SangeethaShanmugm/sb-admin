@@ -29,7 +29,7 @@ function Sidebar() {
 
                 <li className="nav-item active">
                     <Link className="nav-link" to="/user">
-                        <i class="fa-solid fa-user"></i>
+                        <i className="fa-solid fa-user"></i>
                         <span>User</span></Link>
                 </li>
 
