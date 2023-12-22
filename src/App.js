@@ -24,11 +24,8 @@ function App() {
                     <Route path="/user-create" exact={true} component={UserCreate} />
                   </Switch>
                 </div>
-
               </div>
             </div>
-
-
           </div>
         </div>
       </BrowserRouter>

@@ -1,12 +1,27 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { useHistory } from "react-router-dom"
+import { UserContext } from './UserContext'
 
 function UserCreate() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
 
+    const data = useContext(UserContext) //subscribe
+    console.log(data)//{userData: [], setUserData: ƒ}
+
+    const history = useHistory()
+
     const handleSubmit = () => {
         console.log(name, email, phone)
+        const newUserData = {
+            name, email, phone
+        }
+        console.log(newUserData)
+        //copy userData and add newUserData
+        data.setUserData([...data.userData, newUserData])
+        console.log("Data", data.userData)
+        history.push("/user")
     }
     return (
         <div className="container">
